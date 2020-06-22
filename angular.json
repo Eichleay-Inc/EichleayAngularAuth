@@ -3,7 +3,7 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "angular8-sample-app": {
+    "angular-playground": {
       "projectType": "application",
       "schematics": {},
       "root": "",
@@ -13,17 +13,20 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/angular8-sample-app",
+            "outputPath": "dist/angular-playground",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
             "tsConfig": "tsconfig.app.json",
-            "aot": false,
+            "aot": true,
             "assets": [
               "src/favicon.ico",
               "src/assets"
             ],
             "styles": [
+              "node_modules/devextreme/dist/css/dx.common.css",
+              "node_modules/devextreme/dist/css/dx.dark.css",
+              // "node_modules/devextreme/dist/css/dx.material.blue.dark.css",
               "src/styles.css"
             ],
             "scripts": []
@@ -41,7 +44,6 @@
               "sourceMap": false,
               "extractCss": true,
               "namedChunks": false,
-              "aot": true,
               "extractLicenses": true,
               "vendorChunk": false,
               "buildOptimizer": true,
@@ -63,18 +65,18 @@
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
           "options": {
-            "browserTarget": "angular8-sample-app:build"
+            "browserTarget": "angular-playground:build"
           },
           "configurations": {
             "production": {
-              "browserTarget": "angular8-sample-app:build:production"
+              "browserTarget": "angular-playground:build:production"
             }
           }
         },
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "angular8-sample-app:build"
+            "browserTarget": "angular-playground:build"
           }
         },
         "test": {
@@ -111,15 +113,16 @@
           "builder": "@angular-devkit/build-angular:protractor",
           "options": {
             "protractorConfig": "e2e/protractor.conf.js",
-            "devServerTarget": "angular8-sample-app:serve"
+            "devServerTarget": "angular-playground:serve"
           },
           "configurations": {
             "production": {
-              "devServerTarget": "angular8-sample-app:serve:production"
+              "devServerTarget": "angular-playground:serve:production"
             }
           }
         }
       }
-    }},
-  "defaultProject": "angular8-sample-app"
+    }
+  },
+  "defaultProject": "angular-playground"
 }
